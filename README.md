@@ -31,7 +31,7 @@ def read_hwp(path): # path = "파일위치/파일.hwp"
 
 여기서는 필요한 내용들이 표 안에 들어가 있음을 알 수 있다.
 
-<img src="./sample_data/sample.jpg" width="450" height="300"><img src="https://user-images.githubusercontent.com/70126055/236431098-1c0590d6-9707-4bd1-9567-019e76cad0f0.png" width="450" height="250">
+<img src="./sample_data/sample.jpg" width="500" height="350"><img src="https://user-images.githubusercontent.com/70126055/236431098-1c0590d6-9707-4bd1-9567-019e76cad0f0.png" width="500" height="300">
 
 ### text에서 표 내용 뽑아내기
 PrvText를 통해 가져온 text에서는 표의 셀이 <> 기호로 구분되어 있다. (BodyText는 없음 주의)
