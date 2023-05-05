@@ -16,10 +16,11 @@ import os
 import pandas as pd
 ```
 ## 과정
-1. 폴더 내에 있는 모든 신청서 파일들을 읽어와 데이터에 담기 위해서 olefile로 읽은 신청서의 데이터 구조를 파악했다.
+1. 폴더 내에 있는 모든 신청서 파일들을 읽어와 데이터에 담기 위해서 olefile로 읽은 신청서의 데이터 구조를 파악했다.   
+
 <img src="./sample_data/sample.jpg" width="450" height="300"><img src="https://user-images.githubusercontent.com/70126055/236431098-1c0590d6-9707-4bd1-9567-019e76cad0f0.png" width="450" height="250">
 
-2. 파악한 구조를 바탕으로 뽑아내고 싶은 데이터를 리스트에 담아 내보내는 Application 클래스를 생성했다. (일부 생략)
+2. 파악한 구조를 바탕으로 뽑아내고 싶은 데이터를 리스트에 담아 내보내는 Application 클래스를 생성했다. (일부 생략)   
 ```python
 class Application():
   def __init__(self,path):
@@ -72,7 +73,8 @@ class Application():
           datas[6]=True    
     return datas
 ```
-3. os.listdir 함수를 통해 폴더 내 신청서.hwp 문서 이름들을 받아 dataframe에 데이터를 저장해 csv로 저장했다.
+
+3. os.listdir 함수를 통해 폴더 내 신청서.hwp 문서 이름들을 받아 dataframe에 데이터를 저장해 csv로 저장했다.   
 ```python
 # 파일명 리스트
 file_list = [name for name in os.listdir('.') if name[-3:]=="hwp"]
