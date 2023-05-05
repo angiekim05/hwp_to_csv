@@ -94,8 +94,8 @@ def text2data(table):
 class HWPfile():
 	def __init__(self,path):
     	self.text = self.read_hwp(path)
-        self.table = text2table(self.text)
-        self.datas = text2data(self.table)
+        self.table = self.text2table(self.text)
+        self.datas = self.text2data(self.table)
     
     def read_hwp(path):
     	# 생략
