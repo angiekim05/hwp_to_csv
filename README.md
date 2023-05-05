@@ -26,19 +26,19 @@ def read_hwp(path): # path = "파일위치/파일.hwp"
     return text
 ```
 ## 3. text 정제하기
-### 데이터 구조 파악
+### - 데이터 구조 파악
 신청서에서 필요한 내용이 어떻게 text로 저장되었는지 확인한다.
 
 여기서는 필요한 내용들이 표 안에 들어가 있음을 알 수 있다.
 
 <img src="./sample_data/sample.jpg" width="500" height="350"><img src="https://user-images.githubusercontent.com/70126055/236431098-1c0590d6-9707-4bd1-9567-019e76cad0f0.png" width="500" height="300">
 
-### text에서 표 내용 뽑아내기
-PrvText를 통해 가져온 text에서는 표의 셀이 <> 기호로 구분되어 있다. (BodyText는 없음 주의)
+### - text에서 표 내용 뽑아내기
+PrvText를 통해 가져온 text에서는 표의 셀이 <> 기호로 구분되어 있다.
 
 표 안의 내용엔 띄어쓰기가 중요하지 않음으로 빈칸을 없애고,
 
-text 데이터에서 표의 내용을 다음과 같이 table 리스트로 저장했다.
+text 데이터에서 표의 내용을 다음과 같이 table 리스트로 저장한다.
 ```python
 def text2table(text):
     # 표의 내용만 가져오기 위해 다음과 같이 "><" 기호로 셀을 분리하고,
@@ -48,7 +48,7 @@ def text2table(text):
     table = [t.replace("<","").split("\t") for t in text if len(t) > 0 and t[0] == "<"]
     return table
 ```
-## 4.필요한 데이터를 뽑아 리스트에 담기
+## 4. 필요한 데이터를 뽑아 리스트에 담기
 신청서의 포맷은 동일함으로 table 리스트의 위치에 따라 필요 데이터만 뽑아낸다.
 ```python
 def text2data(table):
@@ -88,7 +88,8 @@ def text2data(table):
     return datas 
 ```
 ## 5. 모든 문서에 대하여 데이터를 담아 저장하기
-문서 class를 만들고, os.listdir 함수를 통해 신청서 폴더 내 모든 hwp 문서 이름들을 받아 dataframe에 데이터를 저장해 csv로 저장다.   
+문서 class를 만든 뒤, 모든 문서에 대하여 데이터를 가져올 수 있다.
+이후 데이터를 dataframe에 담아 csv 혹은 엑셀로 저장하면 된다.
 ``` python
 class HWPfile():
 	def __init__(self,path):
